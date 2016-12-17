@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Blossoms</title>
+</head>
+<body>
+	<h1>Bring to Blossom</h1>
+	<input type="text" id="subject">
+	<input type="text" id="object">
+	<button onclick="getWords()">fertilize</button>
+	<div id="sentence"><p>Create something ambiguous</p></div>
+</body>
+<script type="text/javascript">
+	/* noun-verbs scraped from http://www.enchantedlearning.com/wordlist/nounandverb.shtml
+	thanks: https://www.youtube.com/watch?v=aIPqt-OdmS0&index=1&list=PLQVvvaa0QuDfV1MIRBOcqClP6VZXsvyZS */
+	var nounverbs = ["access", "ache", "act", "address", "aim", "alert", "answer", "arrest", "attack", "auction", "back", "bail", "balance", "balloon", "ban", "bandage", "bank", "bare", "bargain", "battle", "beam", "bear", "beat", "bend", "benefit", "blame", "blast", "bleach", "block", "bloom", "blow", "board", "bomb", "bother", "bounce", "bow", "box", "bread", "break", "breed", "broadcast", "brush", "bump", "burn", "buy", "cake", "call", "camp", "care", "catch", "cause", "challenge", "change", "chant", "charge", "cheat", "check", "cheer", "chip", "claim", "clip", "cloud", "clue", "coach", "color", "comb", "comfort", "contrast", "control", "cook", "coop", "copy", "cost", "count", "cover", "crack", "crash", "crate", "credit", "crush", "cure", "curl", "curve", "cut", "cycle", "dam", "damage", "dance", "deal", "decay", "decrease", "delay", "delight", "demand", "design", "dial", "die", "dislike", "display", "dive", "divorce", "dock", "double", "doubt", "drain", "draw", "dream", "dress", "drill", "drink", "drive", "duck", "dump", "dust", "dye", "echo", "email", "end", "escape", "esteem", "estimate", "exchange", "excuse", "exhibit", "experience", "eye", "face", "fall", "favor", "fax", "fear", "feel", "fight", "file", "fill", "film", "finish", "fish", "fix", "flap", "flash", "float", "flood", "floss", "flow", "flower", "fly", "fold", "fool", "force", "form", "frame", "freeze", "frown", "function", "garden", "gaze", "gel", "glue", "grate", "grease", "grill", "grimace", "grin", "grip", "guarantee", "guard", "guess", "guide", "hammer", "hand", "handle", "harm", "harness", "hate", "head", "heap", "heat", "help", "hide", "highlight", "hike", "hit", "hold", "hop", "hope", "hose", "hug", "humor", "hunt", "hurry", "ice", "impact", "inch", "increase", "influence", "insult", "interest", "iron", "itch", "jail", "jam", "joke", "judge", "jump", "keep", "kick", "kiss", "knit", "knock", "knot", "label", "land", "last", "laugh", "lead", "leap", "level", "license", "lie", "lift", "light", "limit", "link", "load", "loan", "lock", "look", "love", "mail", "make", "man", "march", "mark", "match", "mate", "matter", "mean", "measure", "milk", "mind", "mine", "miss", "mistake", "moor", "move", "mug", "nail", "name", "need", "nest", "notch", "note", "notice", "number", "object", "offer", "oil", "order", "pack", "pad", "paddle", "paint", "park", "part", "pass", "paste", "pause", "pat", "pay", "pedal", "peel", "pelt", "permit", "phone", "photograph", "pick", "pine", "place", "plan", "plane", "plant", "play", "plow", "plug", "point", "poke", "pop", "post", "practice", "praise", "present", "process", "produce", "promise", "protest", "pull", "pump", "punch", "push", "question", "quilt", "quiz", "race", "rain", "raise", "rant", "rate", "reach", "reason", "record", "reign", "rent", "repair", "reply", "report", "request", "rhyme", "ring", "riot", "risk", "rock", "roll", "row", "ruin", "rule", "run", "sail", "sand", "saw", "scare", "scratch", "screw", "search", "season", "sense", "shampoo", "shape", "share", "shelter", "shock", "shop", "show", "sign", "signal", "silence", "sin", "sip", "skate", "sketch", "ski", "slice", "slide", "slip", "smell", "smile", "smirk", "smoke", "snack", "snow", "sound", "span", "spot", "spray", "sprout", "squash", "stain", "stamp", "stand", "star", "start", "state", "steer", "step", "sting", "stop", "store", "storm", "stress", "strip", "stroke", "struggle", "study", "stuff", "stunt", "suit", "supply", "support", "surf", "surprise", "swap", "swing", "swivel", "tack", "talk", "taste", "tear", "tease", "telephone", "test", "thunder", "thought", "tick", "tie", "time", "tip", "tire", "toast", "touch", "tour", "tow", "trace", "track", "trade", "train", "transport", "trap", "travel", "treat", "trick", "trim", "trust", "tug", "turn", "twist", "type", "upstage", "use", "vacuum", "value", "visit", "voice", "vote", "walk", "waltz", "wake", "watch", "water", "wave", "wear", "whip", "whisper", "whistle", "wick", "wink", "wire", "wish", "work", "worry", "wrap", "wreck", "yawn", "yield", "zone"];
+	/**
+		creates a Crash Blossom from user input words
+	 * @param String S Subject entered by user
+	 * @param String O Object entered by user
+	 * adds two ambiguous Noun/Verbs in between them
+	 * displays the generated sentence
+	 */
+	function makeSentence(S, O) {
+		var textBox = document.getElementById("sentence").children[0];
+		var nounVerb1 = capitalize(nounverbs[Math.floor(Math.random() * nounverbs.length)]);
+		var nounVerb2 = capitalize(nounverbs[Math.floor(Math.random() * nounverbs.length)]);
+		textBox.innerHTML = S + " " + nounVerb1 + "s " + nounVerb2 + " " + O;
+	}
+	/**
+		fetches user input words and capitalizes them
+		* because capitalization as done in headlines (="Title Case")
+			increases ambiguity by further watering down POS indicators
+	*/
+	function getWords() {
+		var subject = capitalize(document.getElementById("subject").value);
+		var object = capitalize(document.getElementById("object").value);
+		makeSentence(subject, object);
+	}
+	/** capitalizes the input word */
+	function capitalize(word) {
+		var capWord = word.charAt(0).toUpperCase() + word.slice(1);
+		return capWord;
+	}
+</script>
+</html>
