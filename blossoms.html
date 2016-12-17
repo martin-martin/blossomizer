@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<title>💥🌼🌸</title>
 	<style type="text/css">
 		body {
 			margin: auto;
+			margin-top: 250px;
 			max-width: 1000px;
 			text-align: center;
 		}
@@ -25,7 +27,7 @@
 		creates a Crash Blossom from user input words
 	 * @param String S Subject entered by user
 	 * @param String O Object entered by user
-	 * adds two ambiguous Noun/Verbs in between them
+	 * adds two capitalized ambiguous Noun/Verbs in between them
 	 * displays the generated sentence
 	 */
 	function makeSentence(S, O) {
@@ -36,9 +38,9 @@
 	}
 	/**
 		fetches user input words and capitalizes them
-		* because capitalization as done in headlines (="Title Case")
-			increases ambiguity by further watering down POS indicators
-	*/
+	 * because capitalization as done in headlines (="Title Case")
+		increases ambiguity by further watering down POS indicators
+	 */
 	function getWords() {
 		var subject = capitalize(document.getElementById("subject").value);
 		var object = capitalize(document.getElementById("object").value);
