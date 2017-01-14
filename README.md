@@ -1,6 +1,8 @@
 # 💥🌼🌸 - Blossomizer
 This is a very simple [Crash Blossoms](http://www.crashblossoms.com/) Generator.
 
+[Play with the live project](https://d8z079h7ghotx.cloudfront.net/), and [read more on Medium](https://medium.com/@martin.breuss/2-blossombuilder-e8304843a7f9#.2d1h0yew5).
+
 ## Whazzitdo?
 
 It creates ambiguous **pseudo-headlines** (in [Title Case](https://en.wikipedia.org/wiki/Letter_case#Headings_and_publication_titles)).
@@ -45,7 +47,7 @@ Which sseems to actually be a real headline and I think it's super fun! (at leas
 4. I wrote some HTML and JS that takes word input and sticks it onto the page
 5. Only when I saw that all this could work, I went to scrape for Noun-Verbs
 	- 	and used [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) to get a list of Noun-Verbs [from the net](http://www.enchantedlearning.com/wordlist/nounandverb.shtml)
-6. Then I puzzled it together _(Constantly looking over my shoulder for that_ 🐊!)_
+6. Then I puzzled it together _(Constantly looking over my shoulder for that_ 🐊!)
 7. And finally did some mini prettification and put it up on github
 
 ## Ideas
